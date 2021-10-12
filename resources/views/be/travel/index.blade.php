@@ -18,11 +18,6 @@
                 <th>Title</th>
                 <th>Location</th>
                 <th>About</th>
-                <th>Featured Eevent</th>
-                <th>Language</th>
-                <th>Foods</th>
-                <th>Date</th>
-                <th>Duration</th>
                 <th>Price</th>
                 <th>Action</th>
                 </tr>
@@ -35,13 +30,12 @@
                 <td>{{ $travel->title }}</td>
                 <td>{{ $travel->location }}</td>
                 <td>{{ $travel->about }}</td>
-                <th>{{ $travel->featured_event }}</th>
-                <td>{{ $travel->language }}</td>
-                <td>{{ $travel->foods }}</td>
-                <td>{{ $travel->date }}</td>
-                <td>{{ $travel->duration }} Days</td>
-                <td>{{ $travel->price }}</td>
-                <td>mjxgfj</td>
+                <td>Rp{{ $travel->price }}</td>
+                <td>
+                    <a href="/admin/travel/update/{{ $travel->id }}" class="badge badge-pill badge-warning mb-2">Update</a>
+                    <a href="/admin/travel/detail/{{ $travel->id }}" class="badge badge-pill badge-success mb-2">Detail</a>
+                    <a href="/admin/travel/delete/{{ $travel->id }}" class="badge badge-pill badge-danger">Delete</a>
+                </td>
                 </tr>
             @endforeach
             </tbody>

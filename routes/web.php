@@ -26,8 +26,12 @@ Route::get('/keluar', 'HomeController@logout');
 //Route for admin
 Route::get('/admin', 'AdminController@index');
 Route::get('/admin/travel', 'TravelController@index');
-Route::post('/admin/add_travel', 'TravelController@create');
+Route::get('/admin/add_travel', 'TravelController@create');
 Route::post('/admin/add_travel', 'TravelController@store');
+Route::get('/admin/travel/detail/{id}', 'TravelController@detail');
+Route::get('/admin/travel/update/{id}', 'TravelController@edit');
+Route::post('/admin/travel/update/{id}', 'TravelController@update');
+Route::get('/admin/travel/delete/{id}', 'TravelController@destroy');
 Route::get('/admin/gallery', 'GalleryController@index');
 Route::get('/admin/add_gallery', 'GalleryController@create');
 Route::post('/admin/add_gallery', 'GalleryController@store');

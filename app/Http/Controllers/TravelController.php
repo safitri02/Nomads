@@ -54,23 +54,62 @@ class TravelController extends Controller
 
     }
 
-    public function show($id)
+    public function detail($id)
     {
-        //
+        $data = Travel::find($id);
+        // return $data;
+        return view('be.travel.detail', compact('data'));
     }
 
     public function edit($id)
     {
-        //
+        // dd("Masuk");
+        $data = Travel::find($id);
+        return view('be.travel.update', compact('data'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $req, $id)
     {
-        //
+        // dump("MASUK SINIII");
+        // return $req;
+        $req->validate([
+            'title' => 'required',
+            'location' => 'required',
+            'about' => 'required|max:2000',
+            'featured_event' => 'required',
+            'language' => 'required',
+            'foods' => 'required',
+            'date' => 'required',
+            'type' => 'required',
+            'duration' => 'required',
+            'price' => 'required'
+        ]);
+
+        $data = Travel::find($id);
+        $data->title = $req->title;
+        $data->location = $req->location;
+        $data->about = $req->about;
+        $data->featured_event = $req->featured_event;
+        $data->language = $req->language;
+        $data->foods = $req->foods;
+        $data->slug = Str::slug($req->title, '-');
+        $data->date = $req->date;
+        $data->type = $req->type;
+        $data->duration = $req->duration;
+        $data->price = $req->price;
+        $data->update();
+        
+        toast('New Travel Success Update','success');
+        return redirect('/admin/travel');
     }
 
     public function destroy($id)
     {
-        //
+        $data = Travel::find($id);
+        $data->delete();
+
+        toast('New Travel Success Delete','success');
+        return redirect('/admin/travel');
+
     }
 }
