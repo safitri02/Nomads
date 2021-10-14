@@ -13,6 +13,6 @@ class Gallery extends Model
 
     public function travel()
     {
-        return $this->hasMany(Travel::class, 'id', 'id');
+        return $this->belongsTo(Travel::class, 'id', 'id');
     }
 }
