@@ -12,4 +12,8 @@ class Travel extends Model
 
     protected $fillable = ['id', 'title', 'location', 'slug','about', 'featured_event', 'language', 'foods', 'date', 'duration', 'price'];
 
+    function galeri(){
+        return $this->hasMany(Gallery::class, 'id', 'id');
+    }
+
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Transaction;
+use App\TransactionDetail;
+use App\User;
 use App\Travel;
 use Illuminate\Http\Request;
 
@@ -15,7 +17,7 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $data = Transaction::with('travel', 'user');
+        $data = Transaction::with('details', 'travel', 'user')->get();
         return view('be.transaction.index', compact('data'));
     }
 
@@ -26,7 +28,7 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -37,7 +39,7 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
     }
 
     /**
@@ -46,9 +48,11 @@ class TransactionController extends Controller
      * @param  \App\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function show(Transaction $transaction)
+    public function show(Transaction $transaction, $id)
     {
-        //
+        return $id;
+        // $data = Transaction::with('details', 'travel', 'user')->find('id')->get();
+        // return view('be.transaction.detail', compact('data'));
     }
 
     /**

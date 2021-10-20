@@ -24,8 +24,8 @@
             @foreach ($data as $gallery)
                 <tr>
                     <td> {{ $no++ }} </td>
-                    <td style="height:100px"> {{ $gallery->travel->title ?? 'Kosong'}} </td>
-                    <td> <img class="gambar" src="{{ url('/storage/' .$gallery->image) }}"> </td>
+                    <td> {{ $gallery->travel->title ?? 'Kosong'}} </td>
+                    <td> <img style="height:100px;" class="gambar" src="{{ url('/storage/' .$gallery->image) }}"> </td>
                 </tr>
             @endforeach
             </tbody>

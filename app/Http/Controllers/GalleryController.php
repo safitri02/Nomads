@@ -44,7 +44,7 @@ class GalleryController extends Controller
         $data = new Gallery;
         $data->travel_id = $req->id_travel;
         $data['image'] = $req->file('image')->store('/produk/gambar', 'public'); 
-        //setelah ini kita jalankan php artisan storage:link
+        // //setelah ini kita jalankan php artisan storage:link
         $data->save();
         return redirect('/admin/gallery');
     }

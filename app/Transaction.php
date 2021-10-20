@@ -12,6 +12,12 @@ class Transaction extends Model
 
     protected $fillable = ['id', 'travel_id', 'users_id', 'additional_visa', 'transaction_total', 'transaction_status'];
 
+
+    public function details()
+    {
+        return $this->hasMany(TransactionDetail::class, 'id', 'id');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'users_id', 'id');
