@@ -10,7 +10,7 @@
     <div class="card">
     <div class="card-title"><h4 class="mt-2 ml-3">Transaction</h4></div>
     <div class="card-body">
-        <a href="/admin/add_gallery" class="btn btn-primary mb-3">Add Transaction</a>
+        {{-- <a href="/admin/add_gallery" class="btn btn-primary mb-3">Add Transaction</a> --}}
         <table class="table table-hover">
             <thead>
                 <tr>

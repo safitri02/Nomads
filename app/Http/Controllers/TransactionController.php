@@ -50,9 +50,9 @@ class TransactionController extends Controller
      */
     public function show(Transaction $transaction, $id)
     {
-        return $id;
-        // $data = Transaction::with('details', 'travel', 'user')->find('id')->get();
-        // return view('be.transaction.detail', compact('data'));
+        // return $id;
+        $data = Transaction::with('details', 'travel', 'user')->find($id);
+        return view('be.transaction.detail', compact('data'));
     }
 
     /**
