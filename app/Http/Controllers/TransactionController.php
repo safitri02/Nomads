@@ -61,9 +61,11 @@ class TransactionController extends Controller
      * @param  \App\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function edit(Transaction $transaction)
+    public function edit(Transaction $transaction, $id)
     {
-        //
+        $data = Transaction::find($id);
+        return view('be.transaction.update', compact('data'));
+       
     }
 
     /**
@@ -73,9 +75,14 @@ class TransactionController extends Controller
      * @param  \App\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Transaction $transaction)
+    public function update(Request $request, Transaction $transaction, $id)
     {
-        //
+        // return "Masuk";
+        // die;
+        $data = Transaction::find($id);
+        $data->transaction_status = $request->transaction_status;
+        $data->update();
+        return redirect('admin/transaksi');
     }
 
     /**

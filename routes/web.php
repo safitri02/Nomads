@@ -37,6 +37,8 @@ Route::get('/admin/add_gallery', 'GalleryController@create');
 Route::post('/admin/add_gallery', 'GalleryController@store');
 Route::get('/admin/transaksi', 'TransactionController@index');
 Route::get('/admin/transaction/detail/{id}', 'TransactionController@show');
+Route::get('/admin/transaction/update/{id}', 'TransactionController@edit');
+Route::post('/admin/transaction/update/{id}', 'TransactionController@update');
 
 // Route for user
 Route::get('/home', 'UserHomeController@index');

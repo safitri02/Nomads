@@ -34,6 +34,7 @@
                     <td> {{ $d->transaction_total }} </td>
                     <td> {{ $d->transaction_status }} </td>
                     <td> <a href="/admin/transaction/detail/{{ $d->id }}" class="btn btn-primary btn-sm">Detail</a> </td>
+                    <td> <a href="/admin/transaction/update/{{ $d->id }}" class="btn btn-warning btn-sm">Update</a> </td>
                     <td> <a href="" class="btn btn-danger btn-sm">Delete</a> </td>
                 </tr>
             @endforeach
