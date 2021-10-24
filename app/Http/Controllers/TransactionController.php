@@ -91,8 +91,10 @@ class TransactionController extends Controller
      * @param  \App\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Transaction $transaction)
+    public function destroy(Transaction $transaction, $id)
     {
-        //
+        $data = Transaction::find($id);
+        $data->delete();
+        return back();
     }
 }

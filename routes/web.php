@@ -39,6 +39,7 @@ Route::get('/admin/transaksi', 'TransactionController@index');
 Route::get('/admin/transaction/detail/{id}', 'TransactionController@show');
 Route::get('/admin/transaction/update/{id}', 'TransactionController@edit');
 Route::post('/admin/transaction/update/{id}', 'TransactionController@update');
+Route::get('/admin/transaction/delete/{id}', 'TransactionController@destroy');
 
 // Route for user
 Route::get('/home', 'UserHomeController@index');
