@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Travel;
+use App\Transaction;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -13,7 +14,13 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view ('be.index');
+
+        return view ('be.index',[
+            'travel' => Travel::count(),
+            'transaction' => Transaction::count(),
+            'transaction_pending' => Transaction::where('transaction_status', 'PENDING')->count(),
+            'transaction_success' => Transaction::where('transaction_status', 'SUCCESS')->count(),
+        ]);
     }
 
     /**
