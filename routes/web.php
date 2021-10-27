@@ -43,6 +43,7 @@ Route::get('/admin/transaction/delete/{id}', 'TransactionController@destroy');
 
 // Route for user
 Route::get('/home', 'UserHomeController@index');
+Route::get('/detail', 'UserController@detail');
 
 // Auth::routes();
 
